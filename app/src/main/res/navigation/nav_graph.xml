@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/FirstFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.technologyedge.docutracker.HomeFragment"
+        android:label="Documents"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_referFragment"
+            app:destination="@id/referFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_returnFragment"
+            app:destination="@id/returnFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_referedListFragment"
+            app:destination="@id/referedListFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="com.technologyedge.docutracker.AddDocumentFragment"
+        android:label="Document"
+        tools:layout="@layout/fragment_add_document">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/referFragment"
+        android:name="com.technologyedge.docutracker.ReferFragment"
+        android:label="Refer"
+        tools:layout="@layout/fragment_refer">
+        <action
+            android:id="@+id/action_referFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/returnFragment"
+        android:name="com.technologyedge.docutracker.ReturnFragment"
+        android:label="Return"
+        tools:layout="@layout/fragment_return">
+        <action
+            android:id="@+id/action_returnFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/referedListFragment"
+        android:name="com.technologyedge.docutracker.ReferedListFragment"
+        android:label="Refered"
+        tools:layout="@layout/fragment_refer_list">
+        <action
+            android:id="@+id/action_referedListFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.technologyedge.docutracker.DetailsFragment"
+        android:label="Details"
+        tools:layout="@layout/fragment_details"
+        >
+        <action
+            android:id="@+id/action_detailsFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+</navigation>

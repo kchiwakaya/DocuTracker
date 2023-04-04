@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "681646790109",
+    "project_id": "documenttracker-8d3e2",
+    "storage_bucket": "documenttracker-8d3e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:681646790109:android:e6e1a8657e1f3d71525234",
+        "android_client_info": {
+          "package_name": "com.technologyedge.documenttracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "681646790109-6mfsrs1jq4m1n7j16n25on425j0oaco5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCK7Rwd8HjkFpl3iHKRfT2QgRPibUp0RqY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "681646790109-6mfsrs1jq4m1n7j16n25on425j0oaco5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:681646790109:android:b63e20b10c395f51525234",
+        "android_client_info": {
+          "package_name": "com.technologyedge.docutracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "681646790109-6mfsrs1jq4m1n7j16n25on425j0oaco5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCK7Rwd8HjkFpl3iHKRfT2QgRPibUp0RqY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "681646790109-6mfsrs1jq4m1n7j16n25on425j0oaco5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
