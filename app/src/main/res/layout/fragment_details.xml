@@ -10,58 +10,124 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtDtInstruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="142dp"
-        android:layout_marginTop="51dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="32dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtDetTitle" />
 
     <TextView
         android:id="@+id/txtDtDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="89dp"
-        android:layout_marginTop="68dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="32dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtDtInstruction" />
 
     <TextView
         android:id="@+id/txtDtRef"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="66dp"
-        android:layout_marginTop="87dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="32dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtDtDescription" />
 
     <TextView
         android:id="@+id/txtDtDueDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="66dp"
-        android:layout_marginTop="68dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="32dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtDtRef" />
 
     <TextView
         android:id="@+id/txtDtDateReceived"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="99dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="32dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtDtDueDate" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Title"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toTopOf="@+id/txtDtInstruction"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txtDetTitle" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:text="Instruction"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toBottomOf="@+id/txtDtInstruction"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toTopOf="@+id/txtDtRef"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txtDtDescription"
+        app:layout_constraintVertical_bias="0.135" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reference"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toBottomOf="@+id/txtDtRef"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date Due"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toBottomOf="@+id/txtDtDueDate"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date Received"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toTopOf="@+id/txtDtDateReceived"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnRefer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginEnd="32dp"
+        android:text="Refer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.438"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 </androidx.constraintlayout.widget.ConstraintLayout>

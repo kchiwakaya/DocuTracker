@@ -1,16 +1,20 @@
 package com.technologyedge.docutracker
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.*
-import androidx.fragment.app.Fragment
+import android.provider.CalendarContract
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.technologyedge.docutracker.Models.Document
 import com.technologyedge.docutracker.databinding.FragmentAddDocumentBinding
-import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -104,8 +108,9 @@ class AddDocumentFragment : Fragment() {
 
 
             //If there is a due date add Title and due date to google calendar
+
             //return to home fragrament
-            findNavController().navigate(R.id.action_FirstFragment_to_detailsFragment)
+            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
     }
 
@@ -127,17 +132,16 @@ class AddDocumentFragment : Fragment() {
     fun getDate(dateString:String): java.util.Date
     {
         //this line is not working
-      var format = SimpleDateFormat("yyyy-MM-dd")
-
-      return try {
-          return format.parse(dateString)
-      } catch (e: ParseException) {
-          return Date();
-      }
-
-
-
+      val locale = Locale("en_ZW","Zimbabwe")
+      val format = SimpleDateFormat("dd/MM/yyyy",locale)
+        format.timeZone = TimeZone.getTimeZone("UTC")
+        return format.parse(dateString);
     }
+
+
+
+
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

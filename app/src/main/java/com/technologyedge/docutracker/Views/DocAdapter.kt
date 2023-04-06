@@ -8,9 +8,15 @@ import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.technologyedge.docutracker.DetailsFragmentDirections
+import com.technologyedge.docutracker.HomeFragmentDirections
 import com.technologyedge.docutracker.Models.Document
 import com.technologyedge.docutracker.R
 import com.technologyedge.docutracker.databinding.DocumentListBinding
+import java.text.SimpleDateFormat
+import java.time.format.DateTimeFormatter
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class DocAdapter(val context: Context?, private val documents: ArrayList<Document>) :
@@ -24,13 +30,18 @@ class DocAdapter(val context: Context?, private val documents: ArrayList<Documen
 
         fun bind(document: Document) {
             binding.txtTitle.text = document.title
-            binding.txtDueDate.text= document.date_due.toString()
+            binding.txtDueDate.text= getFormattedDate(document.date_due)
             binding.txtRefer.text = document.refer?.refer_to
 
 
         }
 
+        private fun getFormattedDate(dateDue: Date?): String {
 
+            var formatter =  SimpleDateFormat("dd MMMM yyyy")
+            var strDate = formatter.format(dateDue)
+            return  strDate;
+        }
 
 
     }
@@ -46,9 +57,11 @@ class DocAdapter(val context: Context?, private val documents: ArrayList<Documen
         )
         viewHolder.itemView.setOnClickListener {
             val position = viewHolder.adapterPosition
-           // onItemClicked(getItem(position))
-            //Toast.makeText(context,"Shifr",Toast.LENGTH_LONG).show()
-            viewHolder.itemView.findNavController().navigate(R.id.action_FirstFragment_to_detailsFragment)
+            var doc = documents[position]
+           // val action = DetailsFragmentDirections.(doc.id)
+
+           val action = HomeFragmentDirections.actionFirstFragmentToDetailsFragment(doc.id.toString())
+            viewHolder.itemView.findNavController().navigate(action)
         }
 
         return viewHolder

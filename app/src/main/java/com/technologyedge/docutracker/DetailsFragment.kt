@@ -6,13 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import com.technologyedge.docutracker.Models.Document
 import com.technologyedge.docutracker.Views.DocAdapter
 import com.technologyedge.docutracker.databinding.FragmentDetailsBinding
-import com.technologyedge.docutracker.databinding.FragmentHomeBinding
+import java.text.SimpleDateFormat
+import java.util.*
+
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -20,13 +24,13 @@ import com.technologyedge.docutracker.databinding.FragmentHomeBinding
 class DetailsFragment : Fragment() {
 
     private var _binding: FragmentDetailsBinding? = null
-    //private var _binding: FragmentHomeBinding? = null
+    private val args: DetailsFragmentArgs by navArgs()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
     val db = Firebase.firestore
-    private var adapter: DocAdapter? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,41 +44,28 @@ class DetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        /*adapter = DocAdapter(context,getDocuments())
-        binding.recyclerview.layoutManager = LinearLayoutManager(this.context)
-        binding.recyclerview.adapter = adapter*/
-        // Attach an observer on the allItems list to update the UI automatically when the data
-        // changes.
-        /*viewModel.allItems.observe(this.viewLifecycleOwner) { items ->
-            items.let {
-                adapter.submitList(it)
-            }
-        }*/
+        val docRef = db.collection("documents").document(args.currentDocument.toString())
+        docRef.get().addOnSuccessListener { documentSnapshot ->
+            val city = documentSnapshot.toObject<Document>()
+            binding.txtDetTitle.text = city?.title.toString()
+            binding.txtDtDescription.text = city?.description.toString()
+            binding.txtDtRef.text = city?.reference.toString()
+            binding.txtDtDueDate.text = getFormattedDate(city?.date_due)
+            binding.txtDtDateReceived.text = getFormattedDate(city?.date_received)
+            binding.txtDtInstruction.text = city?.instruction.toString()
+        }
+        binding.btnRefer.setOnClickListener{
+            val action = DetailsFragmentDirections.actionDetailsFragmentToReferFragment(args.currentDocument)
+            findNavController().navigate(action)
+        }
     }
 
-    private fun getDocuments(): ArrayList<Document> {
-        var documents:ArrayList<Document> = ArrayList()
-        db.collection("documents")
-            .get()
-            .addOnSuccessListener { result ->
-                for (document in result) {
+    private fun getFormattedDate(dateDue: Date?): String {
 
-                    var doc =document.toObject(Document::class.java)
-                    doc.id = document.id
-
-                     documents.add(doc)
-                    adapter?.notifyDataSetChanged()
-
-
-                   // Log.d(TAG, "${document.id} => ${document.data}")
-                }
-            }
-            .addOnFailureListener { exception ->
-                Toast.makeText(activity,"Failed to load",Toast.LENGTH_LONG).show()
-            }
-        return documents
+        var formatter =  SimpleDateFormat("dd MMMM yyyy")
+        var strDate = formatter.format(dateDue)
+        return  strDate;
     }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
