@@ -60,6 +60,7 @@ class HomeFragment : Fragment() {
 
                     var doc =document.toObject(Document::class.java)
                     doc.id = document.id
+                   // doc.refer.toString()
 
                      documents.add(doc)
                     adapter?.notifyDataSetChanged()

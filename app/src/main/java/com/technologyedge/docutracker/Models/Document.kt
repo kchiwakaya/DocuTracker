@@ -19,7 +19,7 @@ data class Document(
     val date_received: Date? = null,
     @ServerTimestamp
     val date_due: Date? = null,
-    val refer: Refer? = null,
+    var refer: Refer? = null,
     val _return: Return? = null
         ):Parcelable {
     constructor(parcel: Parcel) : this(

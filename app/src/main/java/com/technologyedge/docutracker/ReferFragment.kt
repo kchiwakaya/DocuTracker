@@ -14,6 +14,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.technologyedge.docutracker.Models.Refer
 import com.technologyedge.docutracker.databinding.FragmentReferBinding
+import com.technologyedge.docutracker.util.Constants
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -77,7 +78,7 @@ class ReferFragment : Fragment() {
       binding.btnSaveRef.setOnClickListener{
           //insert into firebase
          
-              db.collection("Documents").document(args.docId)
+              db.collection(Constants.DOCUMENTS).document(args.docId).collection(Constants.REFER).document()
                   .set(getRef())
                   .addOnSuccessListener { documentReference ->
                       //Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
