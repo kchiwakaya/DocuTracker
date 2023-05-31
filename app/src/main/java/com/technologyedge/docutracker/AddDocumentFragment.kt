@@ -109,7 +109,7 @@ class AddDocumentFragment : Fragment() {
 
             //If there is a due date add Title and due date to google calendar
 
-            //return to home fragrament
+            //return to home fragrament if all goes well
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
     }
